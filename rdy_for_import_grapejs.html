@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ministry Hierarchy - FOUND</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="generator" content="GrapesJS Studio">
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #F7F5F0 0%, #E8E3DB 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      color: #2D5016;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .nav-btn {
+      background: #2D5016;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(45, 80, 22, 0.2);
+    }
+
+    .nav-btn:hover {
+      background: #3D6A26;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
+    }
+
+    .nav-btn.active {
+      background: #D4A574;
+      color: #2D5016;
+    }
+
+    .nav-btn.active:hover {
+      background: #E4B584;
+    }
+
+    .diagram-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .slide.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .hierarchy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .main-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #2D5016;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+
+    .leadership-section {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .committee-section {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 8px 32px rgba(45, 80, 22, 0.1);
+      border: 2px solid #F0EDE7;
+      transition: all 0.3s ease;
+      position: relative;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(45, 80, 22, 0.15);
+      border-color: #D4A574;
+    }
+
+    .card.leader {
+      background: linear-gradient(135deg, #2D5016 0%, #3D6A26 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .card.leader-small {
+      background: linear-gradient(135deg, #2D5016 0%, #3D6A26 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      min-width: 180px;
+    }
+
+    .card.committee {
+      background: linear-gradient(135deg, #D4A574 0%, #E4B584 100%);
+      color: #2D5016;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .card.committee-main {
+      background: linear-gradient(135deg, #D4A574 0%, #E4B584 100%);
+      color: #2D5016;
+      font-weight: 600;
+      font-size: 1.1rem;
+      min-width: 220px;
+      padding: 24px 28px;
+    }
+
+    .card.committee-main:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(45, 80, 22, 0.15);
+      border-color: #F0EDE7;
+    }
+
+    .card.role {
+      background: white;
+      color: #333333;
+      font-size: 0.95rem;
+    }
+
+    .card .title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .card .name {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-weight: 500;
+    }
+
+    .card .missing {
+      color: #D4A574;
+      font-style: italic;
+    }
+
+    .card .kiv {
+      color: #888;
+      font-size: 0.8rem;
+    }
+
+    .connector {
+      width: 2px;
+      height: 30px;
+      background: linear-gradient(to bottom, #D4A574, #E4B584);
+      margin: 0 auto;
+      border-radius: 1px;
+    }
+
+    .branch-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .branch-roles {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .sub-role {
+      margin-left: 20px;
+      font-size: 0.85rem;
+      color: #666;
+      padding: 8px 16px;
+      background: #F7F5F0;
+      border-radius: 20px;
+      border: 1px solid #E8E3DB;
+    }
+
+    .long-divider {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, transparent, #D4A574, transparent);
+      margin: 40px 0;
+      border-radius: 2px;
+    }
+
+    .names-section {
+      margin-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      width: 100%;
+      justify-items: center;
+    }
+
+    .role-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(45, 80, 22, 0.08);
+      border: 2px solid #F0EDE7;
+      transition: all 0.3s ease;
+    }
+
+    .role-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(45, 80, 22, 0.12);
+      border-color: #D4A574;
+    }
+
+    .role-title {
+      font-weight: 600;
+      color: #2D5016;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .role-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #333333;
+    }
+
+    .role-name.missing {
+      color: #D4A574;
+      font-style: italic;
+    }
+
+    .sub-note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .leadership-section {
+        gap: 30px;
+      }
+      
+      .card {
+        min-width: 160px;
+        padding: 16px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>FOUND</h1>
+  </div>
+
+  <div class="navigation">
+    <button class="nav-btn active" onclick="showSlide('structure')">Structure</button>
+    <button class="nav-btn" onclick="showSlide('names')">Names</button>
+  </div>
+
+  <div class="diagram-container">
+    <!-- Structure Slide -->
+    <div class="slide active" id="structure">
+      <div class="hierarchy">
+        <!-- Main Title -->
+        <div class="main-title">Structure</div>
+
+        <!-- Leadership Level -->
+        <div class="leadership-section">
+          <div class="card leader-small">
+            <div class="title">Ministry IC</div>
+            <div class="name">Jabez</div>
+          </div>
+          <div class="card leader-small">
+            <div class="title">Ministry 2IC</div>
+            <div class="name">Rebecca</div>
+          </div>
+        </div>
+
+        <!-- Committee Level -->
+        <div class="committee-section">
+          <div class="card committee-main">Ministry Committee</div>
+          <div class="card committee-main">Community Committee</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Names Slide -->
+    <div class="slide" id="names">
+      <div class="hierarchy">
+        <!-- Main Title -->
+        <div class="main-title">Possible Names</div>
+
+        <!-- Long divider line -->
+        <div class="long-divider"></div>
+
+        <!-- Ministry Committee Section -->
+        <div class="names-section">
+          <div class="card committee-main">Ministry Committee</div>
+          
+          <div class="roles-grid">
+            <div class="role-card">
+              <div class="role-title">Admin/Ops Coordinator</div>
+              <div class="role-name">XK</div>
+            </div>
+            <div class="role-card">
+              <div class="role-title">Service Coordinator</div>
+              <div class="role-name missing">???</div>
+            </div>
+            <div class="role-card">
+              <div class="role-title">Discipleship Coordinator</div>
+              <div class="role-name">Anna</div>
+            </div>
+            <div class="role-card">
+              <div class="role-title">Prayer Coordinator/Lead</div>
+              <div class="role-name">Elaine</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Committee Section -->
+        <div class="names-section">
+          <div class="card committee-main">Community Committee</div>
+          
+          <div class="roles-grid">
+            <div class="role-card">
+              <div class="role-title">Events IC</div>
+              <div class="role-name">Joshua</div>
+            </div>
+            <div class="role-card">
+              <div class="role-title">Youth Camp Lead</div>
+              <div class="role-name missing">??? (thinking of some from cg1)</div>
+            </div>
+            <div class="role-card">
+              <div class="role-title">Community Experience IC</div>
+              <div class="kiv">(KIV)</div>
+              <div class="role-name">Rebecca (leading a team)</div>
+              <div class="sub-note">possibly some of Finders/CG1 Leaders</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSlide(slideId) {
+      // Hide all slides
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+      });
+
+      // Remove active class from all buttons
+      const buttons = document.querySelectorAll('.nav-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show selected slide
+      document.getElementById(slideId).classList.add('active');
+      
+      // Add active class to clicked button
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+
+</html>
