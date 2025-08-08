@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+  <p:cSld>
+    <!-- Background Gradient -->
+    <p:bg>
+      <p:bgPr>
+        <a:gradFill flip="none" rotWithShape="1">
+          <a:gsLst>
+            <a:gs pos="0">
+              <a:srgbClr val="F7F5F0"/>
+            </a:gs>
+            <a:gs pos="100000">
+              <a:srgbClr val="E8E3DB"/>
+            </a:gs>
+          </a:gsLst>
+          <a:lin ang="2700000" scaled="1"/>
+        </a:gradFill>
+      </p:bgPr>
+    </p:bg>
+    
+    <p:spTree>
+      <p:nvGrpSpPr>
+        <p:cNvPr id="1" name=""/>
+        <p:cNvGrpSpPr/>
+        <p:nvPr/>
+      </p:nvGrpSpPr>
+      <p:grpSpPr>
+        <a:xfrm>
+          <a:off x="0" y="0"/>
+          <a:ext cx="9144000" cy="6858000"/>
+          <a:chOff x="0" y="0"/>
+          <a:chExt cx="9144000" cy="6858000"/>
+        </a:xfrm>
+      </p:grpSpPr>
+      
+      <!-- FOUND Title -->
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="2" name="Title"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="3500000" y="400000"/>
+            <a:ext cx="2100000" cy="800000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr algn="ctr"/>
+            <a:r>
+              <a:rPr lang="en-US" sz="4000" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="2D5016"/>
+                </a:solidFill>
+                <a:latin typeface="Inter"/>
+              </a:rPr>
+              <a:t>FOUND</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      
+      <!-- Navigation Buttons -->
+      <!-- Structure Button -->
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="3" name="Structure Button"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="3400000" y="1200000"/>
+            <a:ext cx="850000" cy="350000"/>
+          </a:xfrm>
+          <a:prstGeom prst="roundRect">
+            <a:avLst>
+              <a:gd name="adj" fmla="val 35000"/>
+            </a:avLst>
+          </a:prstGeom>
+          <a:gradFill flip="none" rotWithShape="1">
+            <a:gsLst>
+              <a:gs pos="0">
+                <a:srgbClr val="2D5016"/>
+              </a:gs>
+              <a:gs pos="100000">
+                <a:srgbClr val="3D6A26"/>
+              </a:gs>
+            </a:gsLst>
+            <a:lin ang="2700000" scaled="1"/>
+          </a:gradFill>
+          <a:effectLst>
+            <a:outerShdw blurRad="100000" dist="50000" dir="2700000" algn="tl" rotWithShape="0">
+              <a:srgbClr val="2D5016">
+                <a:alpha val="20000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr algn="ctr"/>
+            <a:r>
+              <a:rPr lang="en-US" sz="1600" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Inter"/>
+              </a:rPr>
+              <a:t>Structure</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      
+      <!-- Names Button (Active) -->
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="4" name="Names Button"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4400000" y="1200000"/>
+            <a:ext cx="850000" cy="350000"/>
+          </a:xfrm>
+          <a:prstGeom prst="roundRect">
+            <a:avLst>
+              <a:gd name="adj" fmla="val 35000"/>
+            </a:avLst>
+          </a:prstGeom>
+          <a:gradFill flip="none" rotWithShape="1">
+            <a:gsLst>
+              <a:gs pos="0">
+                <a:srgbClr val="D4A574"/>
+              </a:gs>
+              <a:gs pos="100000">
+                <a:srgbClr val="E4B584"/>
+              </a:gs>
+            </a:gsLst>
+            <a:lin ang="2700000" scaled="1"/>
+          </a:gradFill>
+          <a:effectLst>
+            <a:outerShdw blurRad="100000" dist="50000" dir="2700000" algn="tl" rotWithShape="0">
+              <a:srgbClr val="2D5016">
+                <a:alpha val="20000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr algn="ctr"/>
+            <a:r>
+              <a:rPr lang="en-US" sz="1600" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="2D5016"/>
+                </a:solidFill>
+                <a:latin typeface="Inter"/>
+              </a:rPr>
+              <a:t>Names</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      
+      <!-- Possible Names Title -->
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="5" name="Possible Names Title"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="3500000" y="2000000"/>
+            <a:ext cx="2000000" cy="600000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
