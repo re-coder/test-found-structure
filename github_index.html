@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministry Hierarchy - FOUND</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>FOUND</h1>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn active" onclick="showSlide('structure')">Structure</button>
+        <button class="nav-btn" onclick="showSlide('names')">Names</button>
+    </div>
+
+    <div class="diagram-container">
+        <!-- Structure Slide -->
+        <div class="slide active" id="structure">
+            <div class="hierarchy">
+                <!-- Main Title -->
+                <div class="main-title">Structure</div>
+
+                <!-- Leadership Level -->
+                <div class="leadership-section">
+                    <div class="card leader-small">
+                        <div class="title">Ministry IC</div>
+                        <div class="name">Jabez</div>
+                    </div>
+                    <div class="card leader-small">
+                        <div class="title">Ministry 2IC</div>
+                        <div class="name">Rebecca</div>
+                    </div>
+                </div>
+
+                <!-- Committee Level -->
+                <div class="committee-section">
+                    <div class="card committee-main">Ministry Committee</div>
+                    <div class="card committee-main">Community Committee</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Names Slide -->
+        <div class="slide" id="names">
+            <div class="hierarchy">
+                <!-- Main Title -->
+                <div class="main-title">Possible Names</div>
+
+                <!-- Long divider line -->
+                <div class="long-divider"></div>
+
+                <!-- Ministry Committee Section -->
+                <div class="names-section">
+                    <div class="card committee-main">Ministry Committee</div>
+                    
+                    <div class="roles-grid">
+                        <div class="role-card">
+                            <div class="role-title">Admin/Ops Coordinator</div>
+                            <div class="role-name">XK</div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-title">Service Coordinator</div>
+                            <div class="role-name missing">???</div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-title">Discipleship Coordinator</div>
+                            <div class="role-name">Anna</div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-title">Prayer Coordinator/Lead</div>
+                            <div class="role-name">Elaine</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Committee Section -->
+                <div class="names-section">
+                    <div class="card committee-main">Community Committee</div>
+                    
+                    <div class="roles-grid">
+                        <div class="role-card">
+                            <div class="role-title">Events IC</div>
+                            <div class="role-name">Joshua</div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-title">Youth Camp Lead</div>
+                            <div class="role-name missing">??? (thinking of some from cg1)</div>
+                        </div>
+                        <div class="role-card">
+                            <div class="role-title">Community Experience IC</div>
+                            <div class="kiv">(KIV)</div>
+                            <div class="role-name">Rebecca (leading a team)</div>
+                            <div class="sub-note">possibly some of Finders/CG1 Leaders</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
